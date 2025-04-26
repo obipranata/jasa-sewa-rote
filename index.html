@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasa Sewa Rote</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style type="text/tailwindcss">
+    @theme {
+      --color-primary: #FDA04D;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          'sans': ['Urbanist'],
+          'serif': ['Urbanist'],
+          'mono': ['Urbanist'],
+          'display': ['Urbanist'],
+          'body': ['Urbanist'],
+        },
+        container: {
+          screens: {
+            xl: "1240px",
+          },
+          center: true,
+        },
+      }
+    }
+  </script>
+</head>
+<body>
+  <section class="bg-orange-50 pt-4 lg:pt-0">
+    <nav class="hidden md:flex justify-between container mx-auto py-8 px-4" x-data="{ active: 'beranda' }">
+      <!-- logo -->
+      <div>
+        <img src="./assets/logo.png" class="max-w-[190px]" alt="">
+      </div>
+      <div class="flex gap-4 items-center text-[#6E3F13]">
+        <a @click="active = 'beranda'" href="#beranda" :class="{'text-primary' : active == 'beranda'}" class="hover:text-primary font-semibold text-lg">Beranda</a>
+        <a @click="active = 'alat'" href="#alat" :class="{'text-primary' : active == 'alat'}" class="font-semibold hover:text-primary text-lg">Alat</a>
+        <a @click="active = 'harga'" href="#harga" :class="{'text-primary' : active == 'harga'}" class="font-semibold hover:text-primary text-lg">Harga</a>
+        <a @click="active = 'syarat'" href="#syarat" :class="{'text-primary' : active == 'syarat'}" class="font-semibold hover:text-primary text-lg">Syarat & Ketentuan</a>
+      </div>
+      <a href="https://wa.me/6281281936336" class="bg-[#CE8F3B] hover:bg-[#6E3F13] py-2 px-4 rounded-lg text-white text-xs">Hubungi Kami</a>
+    </nav>
+
+    <!-- hero -->
+     <div class="flex flex-col lg:flex-row items-center justify-between container mx-auto px-4" id="beranda">
+      <div class="w-full lg:max-w-[600px]">
+        <img src="./assets/logo.png" class="w-[250px] lg:w-full">
+        <h1 class="text-[#526542] font-bold text-lg lg:text-4xl">Sewa asik, Explore Rote tanpa panik!</h1>
+        <p class="text-gray-800 font-medium mt-6 text-xs lg:text-base">
+          Jasa Sewa Rote hadir untuk kamu yang ingin piknik tanpa ribet. Kami menyediakan berbagai perlengkapan piknik estetik dan lengkap, mulai dari kursi, meja, tikar, tripod, tenda, hingga kompor portable yang di lengkapi dengan pan grill daging! Cocok untuk kamu yang ingin menikmati waktu santai sendiri, bareng pasangan, teman, maupun keluarga!
+        </p>
+        <a href="" class="bg-[#CE8F3B] hover:bg-[#6E3F13] py-2 w-[150px] lg:w-[199px] flex justify-center text-[16px] rounded-lg text-white mt-4">Hubungi Kami</a>
+      </div>
+      <div class="lg:max-w-[1150px]">
+        <img src="./assets/hero-img.png" class="w-full">
+      </div>
+     </div>
+  </section>
+
+  <section class="flex gap-6 items-center container mx-auto pt-8 lg:-mt-16" id="syarat">
+    <div class="mx-auto flex gap-6">
+      <div class="flex flex-col items-center justify-center w-[90px] lg:w-[180px] bg-[#CE8F3B] rounded-lg py-2 lg:py-6">
+        <div class="font-bold text-white text-base lg:text-xl">100+</div>
+        <div class="mt-3 text-white text-xs">alat tersedia</div>
+      </div>
+      <div class="flex flex-col items-center justify-center w-[90px] lg:w-[180px] bg-[#CE8F3B] rounded-lg py-2 lg:py-6">
+        <div class="font-bold text-white text-base lg:text-xl">10+</div>
+        <div class="mt-3 text-white text-xs">review</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 mt-8 lg:-mt-18" id="alat">
+    <div class="container mx-auto pt-8 lg:pt-32 pb-8 px-4">
+      <h2 class="text-[#6E3F13] underline font-bold text-2xl text-center">ALAT</h2>
+      <div class="flex gap-3 lg:gap-4 flex-wrap justify-center">
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
+          <img src="./assets/tenda.png" class="w-full h-full object-cover">
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
+          <img src="./assets/kompor.png" class="w-full h-full object-cover">
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
+          <img src="./assets/sleeping-bag.png" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-[44px] container mx-auto px-4" id="harga">
+    <h2 class="text-[#6E3F13] underline font-bold text-2xl text-center">DAFTAR HARGA</h2>
+    <p class="mt-6 font-medium text-gray-800 text-base text-center">Dapatkan perlengkapan piknik kualitas premium dengan harga semurah senyuman!</p>
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 mt-8">
+      <!-- Paket Couple -->
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6">
+        <h2 class="text-xl font-bold mb-2 text-center">PAKET COUPLE</h2>
+        <p class="text-base font-semibold text-center mb-4">(Sewa Berdua)</p>
+        <ul class="space-y-4">
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">HEMAT</p>
+              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 40.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">KOMPLIT</p>
+              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat + 1 tripod)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 55.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">SULTAN</p>
+              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat + 1 tripod + 2 topi/kacamata)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 55.000</span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Paket Jomblo -->
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[530px] rounded-2xl shadow-lg p-6">
+        <h2 class="text-xl font-bold mb-2 text-center">PAKET JOMBLO</h2>
+        <p class="text-base font-semibold text-center mb-4">(Sewa Satuan)</p>
+        <ul class="space-y-4">
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Kacamata</p>
+            </div>
+            <span class="font-bold text-sm">Rp 10.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Topi pantai/bucket hat</p>
+            </div>
+            <span class="font-bold text-sm">Rp 10.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Kursi lipat</p>
+            </div>
+            <span class="font-bold text-sm">Rp 15.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Meja lipat</p>
+            </div>
+            <span class="font-bold text-sm">Rp 15.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Tikar Aesthetic</p>
+            </div>
+            <span class="font-bold text-sm">Rp 15.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Kursi Lipat Sultan</p>
+            </div>
+            <span class="font-bold text-sm">Rp 20.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Tripod + remote bluetooth</p>
+            </div>
+            <span class="font-bold text-sm">Rp 20.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Kompor Portable</p>
+            </div>
+            <span class="font-bold text-sm">Rp 25.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">Tenda & Matras</p>
+            </div>
+            <span class="font-bold text-sm">Rp 50.000</span>
+          </li>
+        </ul>
+      </div>
+  
+      <!-- Paket Bestie -->
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6">
+        <h2 class="text-xl font-bold mb-2 text-center">PAKET BESTIE</h2>
+        <p class="text-base font-semibold text-center mb-4">(Sewa Kelompok)</p>
+        <ul class="space-y-4">
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">KENYANG</p>
+              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + gas)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 45.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">SENANG</p>
+              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + gas + 1 Tikar aesthetic)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 55.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">BAHAGIA</p>
+              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + gas + 1 Tikar aesthetic + 1 tripod)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 65.000</span>
+          </li>
+          <li class="flex justify-between">
+            <div class="max-w-[190px]">
+              <p class="font-medium text-sm">SUPER BAHAGIA</p>
+              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + gas + 1 Tikar aesthetic + 1 tripod + 1 tenda & matras)</p>
+            </div>
+            <span class="font-bold text-sm">Rp 100.000</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto mt-[76px] px-4 pb-[75px]">
+    <h2 class="text-[#6E3F13] underline font-bold text-2xl text-center">SYARAT & KETENTUAN</h2>
+    <div class="space-y-8 mt-8">
+      <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
+        <div class="flex justify-between items-center cursor-pointer" @click="open = !open">
+          <div class="font-semibold text-gray-800">Durasi sewa maksimal 24 jam</div>
+          <div x-show="!open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17.6389V7.25488L17.154 12.4469L9 17.6389Z" fill="#1F2937"/>
+            </svg>             
+          </div>
+          <div x-show="open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9999 10.0469L13.1639 17.2469L8.3999 10.0469H17.9999Z" fill="#1F2937"/>
+            </svg>            
+          </div>
+        </div>
+        <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
+          Pengembalian max telat 30menit dengan syarat sudah di konfirmasi terlebih dahulu, overtime denda 5rb/jam
+        </div>
+      </div>
+      <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
+        <div class="flex justify-between items-center cursor-pointer" @click="open = !open">
+          <div class="font-semibold text-gray-800">Wajib meninggalkan identitas diri & nomor telepon aktif</div>
+          <div x-show="!open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17.6389V7.25488L17.154 12.4469L9 17.6389Z" fill="#1F2937"/>
+            </svg>             
+          </div>
+          <div x-show="open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9999 10.0469L13.1639 17.2469L8.3999 10.0469H17.9999Z" fill="#1F2937"/>
+            </svg>            
+          </div>
+        </div>
+        <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
+          KTP/SIM/KTM/Kartu Pelajar yang masih aktif (akan di kembalikan setelah barang sewa di kembalikan sesuai S&K yang berlaku)
+        </div>
+      </div>
+      <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
+        <div class="flex justify-between items-center cursor-pointer" @click="open = !open">
+          <div class="font-semibold text-gray-800">Barang kembali dalam keadaan awal disewa</div>
+          <div x-show="!open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17.6389V7.25488L17.154 12.4469L9 17.6389Z" fill="#1F2937"/>
+            </svg>             
+          </div>
+          <div x-show="open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9999 10.0469L13.1639 17.2469L8.3999 10.0469H17.9999Z" fill="#1F2937"/>
+            </svg>            
+          </div>
+        </div>
+        <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
+          Tidak basah, tidak noda, tidak cacat, tidak rusak. Jagalah kebersihkan barang selayaknya barang milik pribadi
+        </div>
+      </div>
+      <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
+        <div class="flex justify-between items-center cursor-pointer" @click="open = !open">
+          <div class="font-semibold text-gray-800">Kerusakan atau Kehilangan barang menjadi tanggung jawab penyewa</div>
+          <div x-show="!open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17.6389V7.25488L17.154 12.4469L9 17.6389Z" fill="#1F2937"/>
+            </svg>             
+          </div>
+          <div x-show="open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9999 10.0469L13.1639 17.2469L8.3999 10.0469H17.9999Z" fill="#1F2937"/>
+            </svg>            
+          </div>
+        </div>
+        <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
+          Kerusakan atau kehilangan unit akan di kenakan denda perbarang sesuai harga beli di pasaran
+        </div>
+      </div>
+      <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
+        <div class="flex justify-between items-center cursor-pointer" @click="open = !open">
+          <div class="font-semibold text-gray-800">Pembayaran di awal (Cash/TF/OVO/Shopeepay)</div>
+          <div x-show="!open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 17.6389V7.25488L17.154 12.4469L9 17.6389Z" fill="#1F2937"/>
+            </svg>             
+          </div>
+          <div x-show="open">
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.9999 10.0469L13.1639 17.2469L8.3999 10.0469H17.9999Z" fill="#1F2937"/>
+            </svg>            
+          </div>
+        </div>
+        <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
+          <div class="font-bold">TF BRI 3618-01-046497-53-2 a/n Ayu Manafe</div>
+          <div class="mt-2 font-bold">OVO/Shopeepay 082147648632</div>
+        </div>
+      </div>
+      <div class="border-b pb-2 border-gray-800">
+        <div class="flex justify-between items-center">
+          <div class="font-semibold text-gray-800">Menyewa = Menyetujui S&K yang berlaku‼️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-orange-50" id="kontak">
+    <footer class="h-[140px] flex flex-col justify-center items-center">
+      <div class="flex justify-center items-center gap-4">
+        <a href="https://wa.me/6281281936336">
+          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 5.35683C18.0831 4.43094 16.991 3.6968 15.7875 3.19719C14.584 2.69759 13.2931 2.44251 11.99 2.44683C6.53 2.44683 2.08 6.89683 2.08 12.3568C2.08 14.1068 2.54 15.8068 3.4 17.3068L2 22.4468L7.25 21.0668C8.7 21.8568 10.33 22.2768 11.99 22.2768C17.45 22.2768 21.9 17.8268 21.9 12.3668C21.9 9.71683 20.87 7.22683 19 5.35683ZM11.99 20.5968C10.51 20.5968 9.06 20.1968 7.79 19.4468L7.49 19.2668L4.37 20.0868L5.2 17.0468L5 16.7368C4.17755 15.4239 3.74092 13.9061 3.74 12.3568C3.74 7.81683 7.44 4.11683 11.98 4.11683C14.18 4.11683 16.25 4.97683 17.8 6.53683C18.5676 7.30069 19.1759 8.20937 19.5896 9.21016C20.0033 10.2109 20.2142 11.2839 20.21 12.3668C20.23 16.9068 16.53 20.5968 11.99 20.5968ZM16.51 14.4368C16.26 14.3168 15.04 13.7168 14.82 13.6268C14.59 13.5468 14.43 13.5068 14.26 13.7468C14.09 13.9968 13.62 14.5568 13.48 14.7168C13.34 14.8868 13.19 14.9068 12.94 14.7768C12.69 14.6568 11.89 14.3868 10.95 13.5468C10.21 12.8868 9.72 12.0768 9.57 11.8268C9.43 11.5768 9.55 11.4468 9.68 11.3168C9.79 11.2068 9.93 11.0268 10.05 10.8868C10.17 10.7468 10.22 10.6368 10.3 10.4768C10.38 10.3068 10.34 10.1668 10.28 10.0468C10.22 9.92683 9.72 8.70683 9.52 8.20683C9.32 7.72683 9.11 7.78683 8.96 7.77683H8.48C8.31 7.77683 8.05 7.83683 7.82 8.08683C7.6 8.33683 6.96 8.93683 6.96 10.1568C6.96 11.3768 7.85 12.5568 7.97 12.7168C8.09 12.8868 9.72 15.3868 12.2 16.4568C12.79 16.7168 13.25 16.8668 13.61 16.9768C14.2 17.1668 14.74 17.1368 15.17 17.0768C15.65 17.0068 16.64 16.4768 16.84 15.8968C17.05 15.3168 17.05 14.8268 16.98 14.7168C16.91 14.6068 16.76 14.5568 16.51 14.4368Z" fill="black"/>
+          </svg>
+        </a>
+        <a href="">
+          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.8 2.44678H16.2C19.4 2.44678 22 5.04678 22 8.24678V16.6468C22 18.185 21.3889 19.6603 20.3012 20.748C19.2135 21.8357 17.7383 22.4468 16.2 22.4468H7.8C4.6 22.4468 2 19.8468 2 16.6468V8.24678C2 6.70852 2.61107 5.23327 3.69878 4.14556C4.78649 3.05785 6.26174 2.44678 7.8 2.44678ZM7.6 4.44678C6.64522 4.44678 5.72955 4.82606 5.05442 5.50119C4.37928 6.17632 4 7.092 4 8.04678V16.8468C4 18.8368 5.61 20.4468 7.6 20.4468H16.4C17.3548 20.4468 18.2705 20.0675 18.9456 19.3924C19.6207 18.7172 20 17.8016 20 16.8468V8.04678C20 6.05678 18.39 4.44678 16.4 4.44678H7.6ZM17.25 5.94678C17.5815 5.94678 17.8995 6.07847 18.1339 6.31289C18.3683 6.54731 18.5 6.86526 18.5 7.19678C18.5 7.5283 18.3683 7.84624 18.1339 8.08066C17.8995 8.31508 17.5815 8.44678 17.25 8.44678C16.9185 8.44678 16.6005 8.31508 16.3661 8.08066C16.1317 7.84624 16 7.5283 16 7.19678C16 6.86526 16.1317 6.54731 16.3661 6.31289C16.6005 6.07847 16.9185 5.94678 17.25 5.94678ZM12 7.44678C13.3261 7.44678 14.5979 7.97356 15.5355 8.91124C16.4732 9.84893 17 11.1207 17 12.4468C17 13.7729 16.4732 15.0446 15.5355 15.9823C14.5979 16.92 13.3261 17.4468 12 17.4468C10.6739 17.4468 9.40215 16.92 8.46447 15.9823C7.52678 15.0446 7 13.7729 7 12.4468C7 11.1207 7.52678 9.84893 8.46447 8.91124C9.40215 7.97356 10.6739 7.44678 12 7.44678ZM12 9.44678C11.2044 9.44678 10.4413 9.76285 9.87868 10.3255C9.31607 10.8881 9 11.6511 9 12.4468C9 13.2424 9.31607 14.0055 9.87868 14.5681C10.4413 15.1307 11.2044 15.4468 12 15.4468C12.7956 15.4468 13.5587 15.1307 14.1213 14.5681C14.6839 14.0055 15 13.2424 15 12.4468C15 11.6511 14.6839 10.8881 14.1213 10.3255C13.5587 9.76285 12.7956 9.44678 12 9.44678Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
+      <div class="flex justify-center items-center gap-3 mt-3">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.49992 1.78003C4.81792 1.78003 1.83325 4.7647 1.83325 8.4467C1.83325 12.1287 4.81792 15.1134 8.49992 15.1134C12.1819 15.1134 15.1666 12.1287 15.1666 8.4467C15.1666 4.7647 12.1819 1.78003 8.49992 1.78003ZM6.49992 8.4467C6.49996 8.04047 6.6237 7.64389 6.85468 7.30972C7.08565 6.97555 7.41291 6.71964 7.79291 6.57604C8.17291 6.43244 8.58762 6.40795 8.98187 6.50584C9.37613 6.60373 9.73123 6.81936 9.99992 7.12403C10.117 7.25664 10.2819 7.33732 10.4584 7.34832C10.635 7.35932 10.8086 7.29974 10.9413 7.1827C11.0739 7.06565 11.1545 6.90071 11.1655 6.72418C11.1765 6.54765 11.117 6.37397 10.9999 6.24136C10.5521 5.73361 9.96019 5.37429 9.30308 5.21119C8.64597 5.04809 7.95477 5.08896 7.32146 5.32836C6.68815 5.56776 6.14276 5.99434 5.75785 6.55133C5.37294 7.10832 5.16677 7.76931 5.16677 8.44636C5.16677 9.12341 5.37294 9.78441 5.75785 10.3414C6.14276 10.8984 6.68815 11.325 7.32146 11.5644C7.95477 11.8038 8.64597 11.8446 9.30308 11.6815C9.96019 11.5184 10.5521 11.1591 10.9999 10.6514C11.0578 10.5857 11.1022 10.5093 11.1306 10.4265C11.159 10.3436 11.1708 10.256 11.1653 10.1686C11.1598 10.0813 11.1372 9.99582 11.0987 9.91719C11.0602 9.83855 11.0066 9.76828 10.9409 9.71036C10.8753 9.65245 10.7988 9.60804 10.716 9.57966C10.6332 9.55128 10.5456 9.5395 10.4582 9.54497C10.3708 9.55045 10.2854 9.57309 10.2067 9.61159C10.1281 9.65009 10.0578 9.7037 9.99992 9.76936C9.73123 10.074 9.37613 10.2897 8.98187 10.3875C8.58762 10.4854 8.17291 10.461 7.79291 10.3174C7.41291 10.1737 7.08565 9.91784 6.85468 9.58367C6.6237 9.2495 6.49996 8.85292 6.49992 8.4467Z" fill="#6E3F13"/>
+          <p class="text-gray-800 font-bold text-xs">Jasa Sewa Rote 2025</p>
+          <p class="font-medium text-gray-800 text-xs">All rights reserved</p>
+        </svg>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>
