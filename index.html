@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Aos -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style type="text/tailwindcss">
     @theme {
       --color-primary: #FDA04D;
@@ -60,7 +62,7 @@
         </p>
         <a href="https://wa.me/6281281936336" class="bg-[#CE8F3B] hover:bg-[#6E3F13] py-2 w-[150px] lg:w-[199px] flex justify-center text-[16px] rounded-lg text-white mt-4">Hubungi Kami</a>
       </div>
-      <div class="lg:max-w-[1150px]">
+      <div class="lg:max-w-[1150px]" data-aos="fade-up">
         <img src="./assets/hero-img.png" class="w-full">
       </div>
      </div>
@@ -101,7 +103,7 @@
     <p class="mt-6 font-medium text-gray-800 text-base text-center">Dapatkan perlengkapan piknik kualitas premium dengan harga semurah senyuman!</p>
     <div class="flex flex-col lg:flex-row items-center justify-center gap-8 mt-8">
       <!-- Paket Couple -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6">
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6" data-aos="fade-right">
         <h2 class="text-xl font-bold mb-2 text-center">PAKET COUPLE</h2>
         <p class="text-base font-semibold text-center mb-4">(Sewa Berdua)</p>
         <ul class="space-y-4">
@@ -130,7 +132,7 @@
       </div>
   
       <!-- Paket Jomblo -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[530px] rounded-2xl shadow-lg p-6">
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[530px] rounded-2xl shadow-lg p-6" data-aos="fade-left">
         <h2 class="text-xl font-bold mb-2 text-center">PAKET JOMBLO</h2>
         <p class="text-base font-semibold text-center mb-4">(Sewa Satuan)</p>
         <ul class="space-y-4">
@@ -192,7 +194,7 @@
       </div>
   
       <!-- Paket Bestie -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6">
+      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6" data-aos="fade-right">
         <h2 class="text-xl font-bold mb-2 text-center">PAKET BESTIE</h2>
         <p class="text-base font-semibold text-center mb-4">(Sewa Kelompok)</p>
         <ul class="space-y-4">
@@ -354,5 +356,9 @@
       </div>
     </footer>
   </section>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
