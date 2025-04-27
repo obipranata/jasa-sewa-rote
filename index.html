@@ -82,18 +82,80 @@
   </section>
 
   <section class="bg-gray-50 mt-8 lg:-mt-18" id="alat">
-    <div class="container mx-auto pt-8 lg:pt-32 pb-8 px-4">
+    <div class="container mx-auto pt-8 lg:pt-32 pb-8 px-4" x-data="{all: false}">
       <h2 class="text-[#6E3F13] underline font-bold text-2xl text-center">ALAT</h2>
       <div class="flex gap-3 lg:gap-4 flex-wrap justify-center">
-        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
-          <img src="./assets/tenda.png" class="w-full h-full object-cover">
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/tenda.jpeg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Tenda</h3>
         </div>
-        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
-          <img src="./assets/kompor.png" class="w-full h-full object-cover">
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/kursi-lipat-vip.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Kursi Lipat VIP</h3>
         </div>
-        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 w-[150px] h-[150px] lg:w-[400px] lg:h-[400px] rounded-lg">
-          <img src="./assets/sleeping-bag.png" class="w-full h-full object-cover">
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/kursi-lipat.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Kursi Lipat</h3>
         </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/meja-lipat-vIP.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Meja Lipat VIP</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/meja-lipat.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Meja Lipat</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/pan-grill.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Pan Grill</h3>
+        </div>
+      </div>
+      <div class="flex gap-3 lg:gap-4 flex-wrap justify-center" x-show="all">
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/tikar-lipat-red.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Tikar Lipat Red</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/tikar-lipat-yellow.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Tikar Lipat Yellow</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/topi.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Topi</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/topi2.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Topi 2</h3>
+        </div>
+        <div class="bg-orange-50 hover:bg-orange-100 cursor-pointer mt-6 rounded-lg pb-2 shadow-md">
+          <div class="w-[150px] h-[150px] lg:w-[400px] lg:h-[400px]">
+            <img src="./assets/alat/tripod.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-gray-800 font-medium text-center mt-2">Tripod</h3>
+        </div>
+      </div>
+      <div class="flex justify-center mt-4 underline">
+        <button class="" @click="all=!all" x-text="!all ? 'Lihat Semua' : 'Lihat Sedikit' ">Lihat Semua</button>
       </div>
     </div>
   </section>
@@ -341,7 +403,7 @@
             <path d="M19 5.35683C18.0831 4.43094 16.991 3.6968 15.7875 3.19719C14.584 2.69759 13.2931 2.44251 11.99 2.44683C6.53 2.44683 2.08 6.89683 2.08 12.3568C2.08 14.1068 2.54 15.8068 3.4 17.3068L2 22.4468L7.25 21.0668C8.7 21.8568 10.33 22.2768 11.99 22.2768C17.45 22.2768 21.9 17.8268 21.9 12.3668C21.9 9.71683 20.87 7.22683 19 5.35683ZM11.99 20.5968C10.51 20.5968 9.06 20.1968 7.79 19.4468L7.49 19.2668L4.37 20.0868L5.2 17.0468L5 16.7368C4.17755 15.4239 3.74092 13.9061 3.74 12.3568C3.74 7.81683 7.44 4.11683 11.98 4.11683C14.18 4.11683 16.25 4.97683 17.8 6.53683C18.5676 7.30069 19.1759 8.20937 19.5896 9.21016C20.0033 10.2109 20.2142 11.2839 20.21 12.3668C20.23 16.9068 16.53 20.5968 11.99 20.5968ZM16.51 14.4368C16.26 14.3168 15.04 13.7168 14.82 13.6268C14.59 13.5468 14.43 13.5068 14.26 13.7468C14.09 13.9968 13.62 14.5568 13.48 14.7168C13.34 14.8868 13.19 14.9068 12.94 14.7768C12.69 14.6568 11.89 14.3868 10.95 13.5468C10.21 12.8868 9.72 12.0768 9.57 11.8268C9.43 11.5768 9.55 11.4468 9.68 11.3168C9.79 11.2068 9.93 11.0268 10.05 10.8868C10.17 10.7468 10.22 10.6368 10.3 10.4768C10.38 10.3068 10.34 10.1668 10.28 10.0468C10.22 9.92683 9.72 8.70683 9.52 8.20683C9.32 7.72683 9.11 7.78683 8.96 7.77683H8.48C8.31 7.77683 8.05 7.83683 7.82 8.08683C7.6 8.33683 6.96 8.93683 6.96 10.1568C6.96 11.3768 7.85 12.5568 7.97 12.7168C8.09 12.8868 9.72 15.3868 12.2 16.4568C12.79 16.7168 13.25 16.8668 13.61 16.9768C14.2 17.1668 14.74 17.1368 15.17 17.0768C15.65 17.0068 16.64 16.4768 16.84 15.8968C17.05 15.3168 17.05 14.8268 16.98 14.7168C16.91 14.6068 16.76 14.5568 16.51 14.4368Z" fill="black"/>
           </svg>
         </a>
-        <a href="">
+        <a href="https://www.instagram.com/jasasewa.rote?igsh=MTRxZHYyZmxobHlzZA==">
           <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7.8 2.44678H16.2C19.4 2.44678 22 5.04678 22 8.24678V16.6468C22 18.185 21.3889 19.6603 20.3012 20.748C19.2135 21.8357 17.7383 22.4468 16.2 22.4468H7.8C4.6 22.4468 2 19.8468 2 16.6468V8.24678C2 6.70852 2.61107 5.23327 3.69878 4.14556C4.78649 3.05785 6.26174 2.44678 7.8 2.44678ZM7.6 4.44678C6.64522 4.44678 5.72955 4.82606 5.05442 5.50119C4.37928 6.17632 4 7.092 4 8.04678V16.8468C4 18.8368 5.61 20.4468 7.6 20.4468H16.4C17.3548 20.4468 18.2705 20.0675 18.9456 19.3924C19.6207 18.7172 20 17.8016 20 16.8468V8.04678C20 6.05678 18.39 4.44678 16.4 4.44678H7.6ZM17.25 5.94678C17.5815 5.94678 17.8995 6.07847 18.1339 6.31289C18.3683 6.54731 18.5 6.86526 18.5 7.19678C18.5 7.5283 18.3683 7.84624 18.1339 8.08066C17.8995 8.31508 17.5815 8.44678 17.25 8.44678C16.9185 8.44678 16.6005 8.31508 16.3661 8.08066C16.1317 7.84624 16 7.5283 16 7.19678C16 6.86526 16.1317 6.54731 16.3661 6.31289C16.6005 6.07847 16.9185 5.94678 17.25 5.94678ZM12 7.44678C13.3261 7.44678 14.5979 7.97356 15.5355 8.91124C16.4732 9.84893 17 11.1207 17 12.4468C17 13.7729 16.4732 15.0446 15.5355 15.9823C14.5979 16.92 13.3261 17.4468 12 17.4468C10.6739 17.4468 9.40215 16.92 8.46447 15.9823C7.52678 15.0446 7 13.7729 7 12.4468C7 11.1207 7.52678 9.84893 8.46447 8.91124C9.40215 7.97356 10.6739 7.44678 12 7.44678ZM12 9.44678C11.2044 9.44678 10.4413 9.76285 9.87868 10.3255C9.31607 10.8881 9 11.6511 9 12.4468C9 13.2424 9.31607 14.0055 9.87868 14.5681C10.4413 15.1307 11.2044 15.4468 12 15.4468C12.7956 15.4468 13.5587 15.1307 14.1213 14.5681C14.6839 14.0055 15 13.2424 15 12.4468C15 11.6511 14.6839 10.8881 14.1213 10.3255C13.5587 9.76285 12.7956 9.44678 12 9.44678Z" fill="black"/>
           </svg>
