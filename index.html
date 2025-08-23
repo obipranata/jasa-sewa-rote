@@ -467,7 +467,6 @@
           class="flex-grow border-2 border-gray-300 rounded-full py-3 px-5 mr-3 focus:outline-none focus:border-red-300 text-sm resize-none leading-tight max-h-40"
           x-model="newMessage"
           @input="resizeTextarea($event)"
-          @keydown.enter.prevent="sendMessage"
           rows="1"
         ></textarea>
         <button 
