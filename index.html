@@ -462,13 +462,14 @@
 
       <!-- Input -->
       <div class="flex items-center p-4 bg-white">
-        <input 
-          type="text" 
-          placeholder="bisa tanya disini..." 
-          class="flex-grow border-2 border-gray-300 rounded-full py-3 px-5 mr-3 focus:outline-none focus:border-red-300 text-sm"
+        <textarea
+          placeholder="bisa tanya disini..."
+          class="flex-grow border-2 border-gray-300 rounded-full py-3 px-5 mr-3 focus:outline-none focus:border-red-300 text-sm resize-none leading-tight max-h-40"
           x-model="newMessage"
-          @keydown.enter="sendMessage"
-        >
+          @input="resizeTextarea($event)"
+          @keydown.enter.prevent="sendMessage"
+          rows="1"
+        ></textarea>
         <button 
           class="bg-yellow-300 text-red-300 rounded-full p-3 cursor-pointer"
           @click="sendMessage"
@@ -491,7 +492,12 @@
         { sender: 'bot', text: 'Hai, ada yang bisa saya bantu?' }
       ],
       newMessage: '',
-      threadId: 'thread-89923-023927-h',
+      threadId: 'thread-89923',
+
+      resizeTextarea(e) {
+        e.target.style.height = "auto";  // reset dulu
+        e.target.style.height = (e.target.scrollHeight) + "px"; // sesuaikan
+      },
 
       async sendMessage() {
         if (!this.newMessage.trim()) return;
