@@ -29,6 +29,11 @@
   </style>
   <script>
     tailwind.config = {
+      plugins: [tailwind.typography],
+    }
+  </script>
+  <script>
+    tailwind.config = {
       theme: {
         fontFamily: {
           'sans': ['Urbanist'],
@@ -46,6 +51,7 @@
       }
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <section class="bg-orange-50 pt-4 lg:pt-0">
@@ -406,6 +412,124 @@
       </div>
     </div>
   </section>
+
+  <section 
+    x-data="chatApp();" 
+    class="relative"
+  >
+  <!-- Tombol Floating Chat -->
+  <button 
+    @click="open = !open" 
+    class="fixed bottom-6 right-6 bg-yellow-400 text-white p-4 rounded-full shadow-lg focus:outline-none cursor-pointer">
+    💬
+  </button>
+
+  <!-- Popup Chat -->
+  <div
+    x-show="open"
+    x-transition
+    class="fixed bottom-0 lg:bottom-20 lg:right-6 w-full lg:w-96 bg-white rounded-2xl shadow-2xl border overflow-hidden flex flex-col"
+  >
+    <div class="flex flex-col bg-red-100 h-[100vh] lg:h-[70vh]">
+      <!-- Header -->
+      <header class="flex items-center p-4 bg-white shadow">
+        <div class="flex items-center">
+          <div class="w-10 h-10 bg-[#fff7ed] border border-[#fcd34d] rounded-full flex items-center justify-center mr-3">
+            <img src="./assets/sasando.png" alt="">
+          </div>
+          <h1 class="text-lg font-semibold">Jasa Sewa Rote Chatbot</h1>
+        </div>
+        <button @click="open = false" class="ml-auto text-gray-500 hover:text-red-500 cursor-pointer">✖</button>
+      </header>
+
+      <!-- Body -->
+      <div class="flex-grow overflow-y-auto p-4 space-y-3" id="chat-body" x-ref="chatBox">
+        <template x-for="(msg, index) in messages" :key="index">
+          <div :class="msg.sender === 'user' ? 'flex justify-end' : 'flex justify-start'">
+            <div 
+              :class="
+                msg.sender === 'user' 
+                ? 'bg-[#fcd34d] rounded-bl-lg rounded-tl-lg rounded-tr-lg p-3 shadow max-w-[70%]' 
+                : 'bg-[#fde6b3] inline-block rounded-br-lg rounded-tl-lg rounded-tr-lg p-3 shadow max-w-[70%] prose prose-sm'
+              "
+            >
+              <div class="text-sm" x-html="marked.parse(msg.text)"></div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Input -->
+      <div class="flex items-center p-4 bg-white">
+        <input 
+          type="text" 
+          placeholder="bisa tanya disini..." 
+          class="flex-grow border-2 border-gray-300 rounded-full py-3 px-5 mr-3 focus:outline-none focus:border-red-300 text-sm"
+          x-model="newMessage"
+          @keydown.enter="sendMessage"
+        >
+        <button 
+          class="bg-yellow-300 text-red-300 rounded-full p-3 cursor-pointer"
+          @click="sendMessage"
+        >
+          <!-- Ikon Kirim -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20.34 9.32L6.34 2.32C5.78 2.05 5.16 1.95 4.55 2.04C3.94 2.13 3.37 2.41 2.93 2.84C2.48 3.26 2.18 3.82 2.06 4.42C1.94 5.03 2.01 5.65 2.26 6.22L4.66 11.59C4.71 11.72 4.74 11.86 4.74 12C4.74 12.14 4.71 12.28 4.66 12.41L2.26 17.78C2.05 18.24 1.97 18.74 2.01 19.23C2.05 19.73 2.21 20.21 2.48 20.63C2.75 21.05 3.12 21.4 3.56 21.64C4 21.87 4.5 22 5 22C5.47 21.99 5.93 21.89 6.35 21.68L20.35 14.68C20.84 14.43 21.26 14.05 21.55 13.57C21.85 13.1 22 12.55 22 12C22 11.44 21.85 10.9 21.55 10.43C21.26 9.95 20.84 9.57 20.35 9.32H20.34Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function chatApp() {
+    return {
+      open: false,
+      messages: [
+        { sender: 'bot', text: 'Hai, ada yang bisa saya bantu?' }
+      ],
+      newMessage: '',
+      threadId: 'thread-89923-023927-h',
+
+      async sendMessage() {
+        if (!this.newMessage.trim()) return;
+
+        // Tambahkan pesan user
+        this.messages.push({ sender: 'user', text: this.newMessage });
+
+        let messageToSend = this.newMessage;
+        this.newMessage = '';
+
+        try {
+          const res = await fetch("https://fastapi-chatbot-407963532007.asia-southeast2.run.app/chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              message: messageToSend,
+              thread_id: this.threadId
+            })
+          });
+
+          const data = await res.json();
+          console.log(data);
+          this.messages.push({ sender: 'bot', text: (data.answer || "Maaf, tidak ada jawaban.").replace(/\\n/g, "\n")  });
+
+          this.$nextTick(() => {
+            const body = document.getElementById("chat-body");
+            body.scrollTop = body.scrollHeight;
+          });
+        } catch (err) {
+          this.messages.push({ sender: 'bot', text: "⚠️ Error menghubungi server." });
+        }
+      }
+    }
+  }
+</script>
+
+  
 
   <section class="bg-orange-50" id="kontak">
     <footer class="h-[140px] flex flex-col justify-center items-center">
