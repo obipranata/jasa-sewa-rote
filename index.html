@@ -578,7 +578,7 @@
       cart: {}, // Format: { 'itemName': { qty: 1, price: 10000, detail: {} } }
 			async getPaket() {
 				try {
-					const response = await fetch('http://203.194.112.76/api/paket');
+					const response = await fetch('https://jasasewarote.obipranata.my.id/api/paket');
 					const data = await response.json();
 					this.paket = data;
 					console.log(this.paket);
