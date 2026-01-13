@@ -149,11 +149,11 @@
 		<template x-for="paket in paket.data">
 			<div class="mb-12">
 				<h3 class="text-2xl font-bold text-[#6E3F13] mb-8 border-l-4 border-[#FDA04D] pl-4 flex items-center gap-2" x-text="paket.nama"></h3>
-				<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-8 no-scrollbar">
+				<div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:pb-0 lg:grid lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 md:gap-8 no-scrollbar">
 					<template x-for="detail in paket.details">
-						<div class="max-w-[250px] lg:max-w-[400px] flex-shrink-0 snap-center group bg-white rounded-2xl lg:rounded-3xl p-3 md:p-4 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+						<div class="w-[280px] lg:max-w-[360px] flex-shrink-0 snap-center group bg-white rounded-2xl lg:rounded-3xl p-3 md:p-4 shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
 						<!-- Image Container -->
-						<div class="w-full h-[150px] md:h-[220px] mb-3 md:mb-5 overflow-hidden rounded-xl lg:rounded-2xl bg-gray-100 relative">
+						<div class="w-full h-[180px] md:h-[220px] mb-3 md:mb-5 overflow-hidden rounded-xl lg:rounded-2xl bg-gray-100 relative">
 							<img x-bind:src="'https://jasasewarote.obipranata.my.id/storage/public/detail-paket/' + detail.image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 							<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 						</div>
