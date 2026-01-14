@@ -180,7 +180,7 @@
 								<!-- Add to Cart / Quantity Control -->
 								<div class="flex items-center">
 									<template x-if="!cart[detail.nama]">
-										<button @click="addToCart(detail)" class="bg-[#CE8F3B] hover:bg-[#6E3F13] text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 group/btn">
+										<button @click="addToCart(detail)" class="bg-[#CE8F3B] hover:bg-[#6E3F13] text-white px-5 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 group/btn cursor-pointer">
 										<span class="font-bold text-sm">Sewa</span>
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -247,142 +247,105 @@
       </div>
   </section>
 
+  <!-- Checkout Modal -->
+  <div x-show="showCheckoutModal" style="display: none;" class="fixed inset-0 z-[60] overflow-y-auto" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black/50 transition-opacity" @click="showCheckoutModal = false" x-transition.opacity></div>
+
+    <div class="flex min-h-screen items-center justify-center p-4">
+        <div class="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 scale-100"
+             x-transition:leave-end="opacity-0 scale-95">
+             
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold leading-6 text-[#6E3F13]">Form Pesanan</h3>
+                <button @click="showCheckoutModal = false" class="text-gray-400 hover:text-gray-500 cursor-pointer">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                    <input type="text" x-model="form.nama" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="Masukkan nama anda">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Alamat</label>
+                    <textarea x-model="form.alamat" rows="2" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="Masukkan alamat lengkap"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">No Hp (WhatsApp)</label>
+                    <input type="tel" x-model="form.noHp" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Sewa</label>
+                        <input type="date" x-model="form.tglSewa" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Kembali</label>
+                        <input type="date" x-model="form.tglKembali" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Metode Pembayaran</label>
+                    <div class="relative">
+                      <select x-model="form.pembayaran" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm appearance-none bg-white">
+                        <option value="Transfer Bank">Transfer Bank</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Dana">Dana</option>
+                        <option value="ShopeePay">ShopeePay</option>
+                      </select>
+                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                      </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Jaminan</label>
+                    <input type="text" x-model="form.jaminan" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="contoh: KTP, SIM, dll">
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <button @click="sendWhatsapp()" class="cursor-pointer w-full inline-flex justify-center items-center gap-2 rounded-xl border border-transparent bg-[#25D366] px-4 py-3 text-sm font-bold text-white hover:bg-[#20bd5a] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-md transition-all">
+                    <span>Kirim Pesan via WhatsApp</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c.93.512 2.07.867 3.146.865 4.965 0 8.019-4.041 5.437-8.086-1.341-2.1-3.555-3.66-5.777-3.727zm24 11.828c-1.341-2.106-3.561-3.67-5.797-3.738-4.992-.152-8.046 4.093-5.464 8.138.93-.002 2.076.353 3.007.865l2.653-.697-.71-2.592c.639-1.017 1.021-1.989 1.02-3.287-.001-3.18-2.587-5.766-5.768-5.766-3.178.001-5.763 2.588-5.763 5.768.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.697c.93.512 2.07.867 3.146.865 3.178.001 5.763-2.588 5.763-5.768.14 0 .271.015.397.045.497.117.962.33 1.347.643.344.281.637.644.862 1.07.247.464.385.986.385 1.516 0 .584-.139 1.155-.413 1.639-.33.585-.79.944-1.353 1.139-.564.194-1.189.206-1.742.037z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+  </div>
+
   <section class="pt-[44px] container mx-auto px-4" id="harga">
     <h2 class="text-[#6E3F13] underline font-bold text-2xl text-center">DAFTAR HARGA</h2>
     <p class="mt-6 font-medium text-gray-800 text-base text-center">Dapatkan perlengkapan piknik kualitas premium dengan harga semurah senyuman!</p>
     <div class="flex flex-col lg:flex-row items-center justify-center gap-8 mt-8">
-      <!-- Paket Couple -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6" data-aos="fade-up">
-        <h2 class="text-xl font-bold mb-2 text-center">PAKET COUPLE</h2>
-        <p class="text-base font-semibold text-center mb-4">(Sewa Berdua)</p>
-        <ul class="space-y-4">
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">HEMAT</p>
-              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 40.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">KOMPLIT</p>
-              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat + 1 tripod)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 55.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">SULTAN</p>
-              <p class="text-gray-500 text-xs">(2 kursi + 1 meja lipat + 1 tripod + 2 topi/kacamata)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 65.000</span>
-          </li>
-        </ul>
-      </div>
-  
-      <!-- Paket Jomblo -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[530px] rounded-2xl shadow-lg p-6" data-aos="fade-up">
-        <h2 class="text-xl font-bold mb-2 text-center">PAKET JOMBLO</h2>
-        <p class="text-base font-semibold text-center mb-4">(Sewa Satuan)</p>
-        <ul class="space-y-4">
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Kacamata</p>
-            </div>
-            <span class="font-bold text-sm">Rp 10.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Topi pantai/bucket hat</p>
-            </div>
-            <span class="font-bold text-sm">Rp 10.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Kursi lipat</p>
-            </div>
-            <span class="font-bold text-sm">Rp 15.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Meja lipat</p>
-            </div>
-            <span class="font-bold text-sm">Rp 15.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Tikar Aesthetic</p>
-            </div>
-            <span class="font-bold text-sm">Rp 15.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Kursi Lipat Sultan</p>
-            </div>
-            <span class="font-bold text-sm">Rp 20.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Tripod + remote bluetooth</p>
-            </div>
-            <span class="font-bold text-sm">Rp 20.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Kompor Portable</p>
-            </div>
-            <span class="font-bold text-sm">Rp 25.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Tenda & Matras</p>
-            </div>
-            <span class="font-bold text-sm">Rp 80.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">Sleeping Bag</p>
-            </div>
-            <span class="font-bold text-sm">Rp 50.000</span>
-          </li>
-        </ul>
-      </div>
-  
-      <!-- Paket Bestie -->
-      <div class="bg-orange-50 text-gray-800 w-[346px] h-[467px] rounded-2xl shadow-lg p-6" data-aos="fade-up">
-        <h2 class="text-xl font-bold mb-2 text-center">PAKET BESTIE</h2>
-        <p class="text-base font-semibold text-center mb-4">(Sewa Kelompok)</p>
-        <ul class="space-y-4">
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">KENYANG</p>
-              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 45.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">SENANG</p>
-              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + 1 Tikar aesthetic)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 55.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">BAHAGIA</p>
-              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + 1 Tikar aesthetic + 1 tripod)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 65.000</span>
-          </li>
-          <li class="flex justify-between">
-            <div class="max-w-[190px]">
-              <p class="font-medium text-sm">SUPER BAHAGIA</p>
-              <p class="text-gray-500 text-xs">(1 kompor + 1 pan anti lengket + capitan & kuas + 1 Tikar aesthetic + 1 tripod + 1 tenda & matras)</p>
-            </div>
-            <span class="font-bold text-sm">Rp 100.000</span>
-          </li>
-        </ul>
-      </div>
+
+		<!-- Card Daftar Harga -->
+       <template x-for="(paket, index ) in paket.data">
+         <div x-bind:class="index == 1 ? '' : 'lg:h-[467px]'" class="bg-orange-50 text-gray-800 w-[346px] rounded-2xl shadow-lg p-6" data-aos="fade-up">
+           <h2 class="text-xl font-bold mb-2 text-center" x-text="paket.nama"></h2>
+           <p class="text-base font-semibold text-center mb-4" x-text="'('+paket.keterangan+')'"></p>
+           <ul class="space-y-4">
+              <template x-for="detail in paket.details">
+                <li class="flex justify-between">
+                  <div class="max-w-[190px]">
+                    <p class="font-medium text-sm" x-text="detail.nama"></p>
+                    <p class="text-gray-500 text-xs" x-text="detail.keterangan"></p>
+                  </div>
+                  <span class="font-bold text-sm" x-text="formatRupiah(detail.harga)"></span>
+                </li>
+              </template>
+           </ul>
+         </div>
+       </template>
     </div>
   </section>
 
@@ -404,7 +367,7 @@
           </div>
         </div>
         <div class="mt-3 py-[37px] px-6 text-xs text-gray-800 bg-gray-50" x-show="open">
-          Pengembalian max telat 30menit dengan syarat sudah di konfirmasi terlebih dahulu, overtime denda 5rb/jam
+          Pengembalian max telat 30 menit dengan syarat sudah di konfirmasi terlebih dahulu, overtime denda 5rb/jam
         </div>
       </div>
       <div class="border-b pb-2 border-gray-800" x-data="{ open: false }">
@@ -572,6 +535,16 @@
 		return {
 			paket: [],
       cart: {}, // Format: { 'itemName': { qty: 1, price: 10000, detail: {} } }
+      showCheckoutModal: false,
+      form: {
+        nama: '',
+        alamat: '',
+        noHp: '',
+        tglSewa: '',
+        tglKembali: '',
+        pembayaran: 'Transfer Bank',
+        jaminan: ''
+      },
 			async getPaket() {
 				try {
 					const response = await fetch('https://jasasewarote.obipranata.my.id/api/paket');
@@ -617,8 +590,28 @@
         return Object.values(this.cart).reduce((total, item) => total + (item.price * item.qty), 0);
       },
       checkout() {
-        let message = "Halo kak, saya mau sewa perlengkapan berikut:\n\n";
-        
+        this.showCheckoutModal = true;
+      },
+      sendWhatsapp() {
+        // Validasi sederhana
+        if (!this.form.nama || !this.form.noHp || !this.form.alamat || !this.form.tglSewa || !this.form.tglKembali || !this.form.pembayaran || !this.form.jaminan) {
+            alert('Mohon lengkapi data yang diperlukan!');
+            return;
+        }
+
+        let message = "Halo kak, saya mau sewa perlengkapan di Jasa Sewa Rote\n";
+
+        message += `\n*Data Penyewa:*\n`;
+        message += `- Nama: ${this.form.nama}\n`;
+        message += `- Alamat: ${this.form.alamat}\n`;
+        message += `- No Hp: ${this.form.noHp}\n`;
+        message += `- Tgl Sewa: ${this.form.tglSewa.split('-').reverse().join('-')}\n`;
+        message += `- Tgl Kembali: ${this.form.tglKembali.split('-').reverse().join('-')}\n`;
+        message += `- Metode Pembayaran: ${this.form.pembayaran}\n`;
+        message += `- Jaminan: ${this.form.jaminan}\n`;
+
+        message += `\n*Perlengkapan yang disewa:*\n`;
+
         Object.keys(this.cart).forEach(key => {
           const item = this.cart[key];
           message += `- ${key} (${item.qty}x)\n`;
@@ -628,6 +621,11 @@
         
         const url = `https://wa.me/6281281936336?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
+        this.showCheckoutModal = false;
+        
+        // Opsional: Reset form atau cart? 
+        // this.cart = {}; 
+        // this.form = ...
       }
 		}
 	}
