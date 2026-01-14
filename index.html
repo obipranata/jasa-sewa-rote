@@ -273,30 +273,28 @@
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
-                    <input type="text" x-model="form.nama" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="Masukkan nama anda">
+                    <input type="text" x-model="form.nama" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base" placeholder="Masukkan nama anda">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Alamat</label>
-                    <textarea x-model="form.alamat" rows="2" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="Masukkan alamat lengkap"></textarea>
+                    <textarea x-model="form.alamat" rows="2" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base" placeholder="Masukkan alamat lengkap"></textarea>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">No Hp (WhatsApp)</label>
-                    <input type="tel" x-model="form.noHp" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="08xxxxxxxxxx">
+                    <input type="tel" x-model="form.noHp" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base" placeholder="08xxxxxxxxxx">
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Sewa</label>
-                        <input type="date" x-model="form.tglSewa" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Kembali</label>
-                        <input type="date" x-model="form.tglKembali" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm">
-                    </div>
-                </div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Sewa</label>
+					<input type="date" x-model="form.tglSewa" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base">
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Hari/Tgl Kembali</label>
+					<input type="date" x-model="form.tglKembali" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base">
+				</div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Metode Pembayaran</label>
                     <div class="relative">
-                      <select x-model="form.pembayaran" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm appearance-none bg-white">
+                      <select x-model="form.pembayaran" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base appearance-none bg-white">
                         <option value="Transfer Bank">Transfer Bank</option>
                         <option value="Cash">Cash</option>
                         <option value="Dana">Dana</option>
@@ -309,7 +307,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Jaminan</label>
-                    <input type="text" x-model="form.jaminan" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-sm" placeholder="contoh: KTP, SIM, dll">
+                    <input type="text" x-model="form.jaminan" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-[#FDA04D] focus:ring-[#FDA04D] border p-2.5 outline-none text-base" placeholder="contoh: KTP, SIM, dll">
                 </div>
             </div>
 
